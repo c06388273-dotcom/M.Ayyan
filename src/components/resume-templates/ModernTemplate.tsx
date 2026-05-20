@@ -54,7 +54,7 @@ export function ModernTemplate({ data, themeColor = '#4F46E5' }: ModernTemplateP
             Experience
           </h3>
           {experience.map(exp => (
-            <div key={exp.id} className="mb-[18px]">
+            <div key={exp.id} className="mb-[18px] break-inside-avoid print:break-inside-avoid">
               <div className="flex justify-between items-baseline mb-[4px]">
                 <div className="font-bold text-[1.05rem] text-[#222]">{exp.position}</div>
                 <div className="text-[0.9rem] font-semibold" style={{ color: 'var(--accent)' }}>
@@ -77,7 +77,7 @@ export function ModernTemplate({ data, themeColor = '#4F46E5' }: ModernTemplateP
             Education
           </h3>
           {education.map(edu => (
-            <div key={edu.id} className="mb-[18px]">
+            <div key={edu.id} className="mb-[18px] break-inside-avoid print:break-inside-avoid">
               <div className="flex justify-between items-baseline mb-[4px]">
                 <div className="font-bold text-[1.05rem] text-[#222]">{edu.degree}</div>
                 <div className="text-[0.9rem] font-semibold" style={{ color: 'var(--accent)' }}>
@@ -102,7 +102,7 @@ export function ModernTemplate({ data, themeColor = '#4F46E5' }: ModernTemplateP
             Projects
           </h3>
           {data.projects.map(proj => (
-            <div key={proj.id} className="mb-[18px]">
+            <div key={proj.id} className="mb-[18px] break-inside-avoid print:break-inside-avoid">
               <div className="flex justify-between items-baseline mb-[4px]">
                 <div className="font-bold text-[1.05rem] text-[#222]">{proj.name}</div>
                 {proj.link && (
@@ -121,7 +121,7 @@ export function ModernTemplate({ data, themeColor = '#4F46E5' }: ModernTemplateP
 
       {/* Skills */}
       {skills.length > 0 && (
-        <div className="mb-[25px]">
+        <div className="mb-[25px] break-inside-avoid print:break-inside-avoid">
           <h3 className="text-[1.1rem] font-bold border-b border-[#eee] pb-[5px] mb-[15px] uppercase tracking-[1px]" style={{ color: 'var(--accent)' }}>
             Skills & Expertise
           </h3>
