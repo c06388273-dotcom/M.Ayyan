@@ -48,12 +48,12 @@ export function PreviewScreen({ data, updateData }: PreviewScreenProps) {
       };
 
       const opt: any = {
-          margin:       0,
+          margin:       0.4,
           filename:     `${data.personalInfo.fullName || 'My'}_Resume.pdf`,
           image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas:  { scale: 3, useCORS: true, letterRendering: true, backgroundColor: '#ffffff' },
+          html2canvas:  { scale: 2, useCORS: true, letterRendering: true, backgroundColor: '#ffffff', windowWidth: 800 },
           jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
-          pagebreak:    { mode: ['css', 'legacy'] }
+          pagebreak:    { mode: ['css', 'legacy'], avoid: ['.legacy-page-break-avoid', 'h1', 'h2', 'h3', 'p', 'li'] }
       };
 
       html2pdf().set(opt).from(element).save().then(() => {
@@ -118,7 +118,7 @@ export function PreviewScreen({ data, updateData }: PreviewScreenProps) {
 
       <div className={`flex-1 min-h-[500px] overflow-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-200 dark:bg-slate-900 flex justify-center p-2 shadow-inner ${isGeneratingPDF ? 'opacity-50 pointer-events-none' : ''}`}>
         <div 
-          className={`origin-top bg-white shrink-0 transition-transform duration-200 ${isGeneratingPDF ? 'scale-100 shadow-none' : 'scale-[0.4] sm:scale-[0.5] md:scale-[0.6] shadow-2xl print:scale-100 print:m-0'}`}
+          className={`origin-top bg-white shrink-0 transition-transform duration-200 w-[210mm] min-h-[297mm] p-[40px] print:p-0 ${isGeneratingPDF ? 'scale-100 shadow-none' : 'scale-[0.4] sm:scale-[0.5] md:scale-[0.6] shadow-2xl print:scale-100 print:m-0'}`}
           style={{ marginBottom: isGeneratingPDF ? '0' : '-60%' }}
         >
           <div id="resume-preview-board">

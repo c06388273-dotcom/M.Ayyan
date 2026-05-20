@@ -16,7 +16,7 @@ export function ModernTemplate({ data, themeColor = '#4F46E5' }: ModernTemplateP
   } as React.CSSProperties;
 
   return (
-    <div className="w-[210mm] min-h-[297mm] bg-[#ffffff] text-[#333333] flex flex-col font-sans shrink-0 print:w-full print:h-full p-[40px] leading-[1.6] box-border mx-auto" style={rootStyle}>
+    <div className="w-[100%] min-h-[297mm] bg-[#ffffff] text-[#333333] block font-sans shrink-0 leading-[1.6] box-border" style={rootStyle}>
       {/* Header Section */}
       <div className="text-center border-b-2 pb-[20px] mb-[25px]" style={{ borderColor: 'var(--accent)' }}>
         {personalInfo.photoUrl && (
@@ -54,7 +54,7 @@ export function ModernTemplate({ data, themeColor = '#4F46E5' }: ModernTemplateP
             Experience
           </h3>
           {experience.map(exp => (
-            <div key={exp.id} className="mb-[18px] break-inside-avoid print:break-inside-avoid">
+            <div key={exp.id} className="mb-[18px] break-inside-avoid print:break-inside-avoid legacy-page-break-avoid">
               <div className="flex justify-between items-baseline mb-[4px]">
                 <div className="font-bold text-[1.05rem] text-[#222]">{exp.position}</div>
                 <div className="text-[0.9rem] font-semibold" style={{ color: 'var(--accent)' }}>
@@ -77,7 +77,7 @@ export function ModernTemplate({ data, themeColor = '#4F46E5' }: ModernTemplateP
             Education
           </h3>
           {education.map(edu => (
-            <div key={edu.id} className="mb-[18px] break-inside-avoid print:break-inside-avoid">
+            <div key={edu.id} className="mb-[18px] break-inside-avoid print:break-inside-avoid legacy-page-break-avoid">
               <div className="flex justify-between items-baseline mb-[4px]">
                 <div className="font-bold text-[1.05rem] text-[#222]">{edu.degree}</div>
                 <div className="text-[0.9rem] font-semibold" style={{ color: 'var(--accent)' }}>
@@ -102,7 +102,7 @@ export function ModernTemplate({ data, themeColor = '#4F46E5' }: ModernTemplateP
             Projects
           </h3>
           {data.projects.map(proj => (
-            <div key={proj.id} className="mb-[18px] break-inside-avoid print:break-inside-avoid">
+            <div key={proj.id} className="mb-[18px] break-inside-avoid print:break-inside-avoid legacy-page-break-avoid">
               <div className="flex justify-between items-baseline mb-[4px]">
                 <div className="font-bold text-[1.05rem] text-[#222]">{proj.name}</div>
                 {proj.link && (
@@ -121,7 +121,7 @@ export function ModernTemplate({ data, themeColor = '#4F46E5' }: ModernTemplateP
 
       {/* Skills */}
       {skills.length > 0 && (
-        <div className="mb-[25px] break-inside-avoid print:break-inside-avoid">
+        <div className="mb-[25px] break-inside-avoid print:break-inside-avoid legacy-page-break-avoid">
           <h3 className="text-[1.1rem] font-bold border-b border-[#eee] pb-[5px] mb-[15px] uppercase tracking-[1px]" style={{ color: 'var(--accent)' }}>
             Skills & Expertise
           </h3>

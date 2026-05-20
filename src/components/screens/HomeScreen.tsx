@@ -5,10 +5,11 @@ import { ScreenType } from '../../types';
 
 interface HomeScreenProps {
   navigateTo: (screen: ScreenType) => void;
+  createNew: () => void;
   hasDraft?: boolean;
 }
 
-export function HomeScreen({ navigateTo, hasDraft = true }: HomeScreenProps) {
+export function HomeScreen({ navigateTo, createNew, hasDraft = true }: HomeScreenProps) {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -29,7 +30,7 @@ export function HomeScreen({ navigateTo, hasDraft = true }: HomeScreenProps) {
             AI-powered, ATS-friendly, and beautifully designed to get you hired faster.
           </p>
           <button 
-            onClick={() => navigateTo('builder')}
+            onClick={createNew}
             className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl shadow-lg shadow-indigo-600/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
           >
             <Plus size={20} />

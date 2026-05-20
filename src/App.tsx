@@ -45,11 +45,13 @@ export default function App() {
   };
 
   const handleNavigate = (screen: ScreenType) => {
-    if (screen === 'builder' && currentScreen === 'home') {
-      // In a real app we might load empty draft, but we'll stick to initial data
-    }
     setCurrentScreen(screen);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCreateNew = () => {
+    setResumeData(emptyResumeData);
+    handleNavigate('builder');
   };
 
   // Setup Gemini SDK for AI Bio Generation
@@ -105,7 +107,11 @@ export default function App() {
           <AnimatePresence mode="wait">
             {currentScreen === 'home' && (
               <motion.div key="home">
-                 <HomeScreen navigateTo={handleNavigate} hasDraft={true} />
+                 <HomeScreen 
+                   navigateTo={handleNavigate} 
+                   createNew={handleCreateNew} 
+                   hasDraft={!!localStorage.getItem('resumeDraft') && (resumeData.personalInfo.fullName !== '' || resumeData.experience.length > 0)} 
+                 />
               </motion.div>
             )}
             {currentScreen === 'builder' && (

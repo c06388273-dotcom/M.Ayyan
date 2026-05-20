@@ -46,6 +46,7 @@ export interface ResumeData {
   projects: Project[];
   settings?: {
     themeColor?: string;
+    template?: 'modern' | 'professional' | 'minimal';
   };
 }
 
